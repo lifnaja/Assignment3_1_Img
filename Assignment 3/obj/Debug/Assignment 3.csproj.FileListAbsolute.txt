@@ -1,0 +1,9 @@
+D:\source\repos\Assignment 3\Assignment 3\bin\Debug\Assignment 3.exe
+D:\source\repos\Assignment 3\Assignment 3\bin\Debug\Assignment 3.pdb
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment 3.csprojResolveAssemblyReference.cache
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment_3.Form1.resources
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment_3.Properties.Resources.resources
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment 3.csproj.GenerateResource.Cache
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment 3.csproj.CoreCompileInputs.cache
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment 3.exe
+D:\source\repos\Assignment 3\Assignment 3\obj\Debug\Assignment 3.pdb
