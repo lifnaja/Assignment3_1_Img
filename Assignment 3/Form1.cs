@@ -40,66 +40,37 @@ namespace Assignment_3
 
             }
             pictureBox1.Image = f_image;
+            CreateHistogram();
 
-            int[,] colorPic = new int[f_image.Width, f_image.Height];
-            // Loop through the images pixels
-            for (int i = 0; i < f_image.Width; i++)
-            {
-                for (int j = 0; j < f_image.Height; j++)
-                {
-                    Color PixelColor = f_image.GetPixel(i, j);
-                    int C_gray = (int)(PixelColor.R + PixelColor.G +
-                    PixelColor.B) / 3;
-                    colorPic[i, j] = C_gray;
-                }
-            }
+
         }
 
-        private void btn_Histogram_Click(object sender, EventArgs e)
+        public void CreateHistogram()
         {
-            double[] runningSum = new double[256];
-            int[] countColor = new int[256];
-            int pixel = f_image.Height * f_image.Width;
-            int color = 255;
+            int[] arrGray = new int[256];
+
             for (int i = 0; i < f_image.Width; i++)
             {
                 for (int j = 0; j < f_image.Height; j++)
                 {
                     Color PixelColor = f_image.GetPixel(i, j);
-                    int C_gray = (int)(PixelColor.R + PixelColor.G + PixelColor.B) / 3;
-                    countColor[C_gray]++;
+                    arrGray[PixelColor.R]++;
                 }
             }
-            //running sum
-            runningSum[0] = countColor[0];
-            for (int i = 1; i < 256; i++)
+
+
+            for (int i = 1; i < arrGray.Length; i++)
             {
-                runningSum[i] = runningSum[i - 1] + countColor[i];
-                //Console.WriteLine(countColor[i] +"//"+ runningSum[i]);
+                this.Histogram.Series["Color"].Points.AddXY(i, arrGray[i]);
+             
             }
 
-            for (int i = 0; i < 256; i++)
-            {
-                runningSum[i] = Math.Round(runningSum[i] / pixel * color);
-                //Console.WriteLine(runningSum[i]);
-            }
 
-            image = new Bitmap(f_image.Width, f_image.Height);
-            for (int i = 0; i < f_image.Width; i++)
-            {
-                for (int j = 0; j < f_image.Height; j++)
-                {
-                    Color PixelColor = f_image.GetPixel(i, j);
-                    int C_gray = (int)(PixelColor.R + PixelColor.G + PixelColor.B) / 3;
-                    int NewColor = (int)runningSum[C_gray];
-                    image.SetPixel(i, j, Color.FromArgb(NewColor, NewColor, NewColor));
-                }
-            }
-            pictureBox2.Image = image;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            image = new Bitmap(f_image.Width, f_image.Height);
             int color_1 = Convert.ToInt32(txt_color1.Text);
             int color_2 = Convert.ToInt32(txt_color2.Text);
             int color_3 = Convert.ToInt32(txt_color3.Text);
