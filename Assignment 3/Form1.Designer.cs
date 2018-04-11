@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,13 +55,13 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.btn_Histogram = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.Histogram = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -67,12 +70,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Histogram)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(455, 26);
+            this.pictureBox2.Location = new System.Drawing.Point(509, 26);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(253, 187);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -82,7 +86,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(34, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(248, 187);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -217,7 +221,7 @@
             // btn_OpenFile
             // 
             this.btn_OpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btn_OpenFile.Location = new System.Drawing.Point(747, 37);
+            this.btn_OpenFile.Location = new System.Drawing.Point(827, 39);
             this.btn_OpenFile.Name = "btn_OpenFile";
             this.btn_OpenFile.Size = new System.Drawing.Size(83, 43);
             this.btn_OpenFile.TabIndex = 16;
@@ -274,29 +278,17 @@
             this.pictureBox8.Size = new System.Drawing.Size(82, 26);
             this.pictureBox8.TabIndex = 21;
             this.pictureBox8.TabStop = false;
-           
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.button2.Location = new System.Drawing.Point(747, 105);
+            this.button2.Location = new System.Drawing.Point(768, 106);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 44);
             this.button2.TabIndex = 22;
             this.button2.Text = "Intensity Slicing";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btn_Histogram
-            // 
-            this.btn_Histogram.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btn_Histogram.Location = new System.Drawing.Point(323, 70);
-            this.btn_Histogram.Name = "btn_Histogram";
-            this.btn_Histogram.Size = new System.Drawing.Size(86, 40);
-            this.btn_Histogram.TabIndex = 23;
-            this.btn_Histogram.Text = "Histogram";
-            this.btn_Histogram.UseVisualStyleBackColor = true;
-            this.btn_Histogram.Click += new System.EventHandler(this.btn_Histogram_Click);
             // 
             // label9
             // 
@@ -352,18 +344,34 @@
             this.label14.TabIndex = 30;
             this.label14.Text = "2";
             // 
+            // Histogram
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Histogram.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Histogram.Legends.Add(legend1);
+            this.Histogram.Location = new System.Drawing.Point(210, 162);
+            this.Histogram.Name = "Histogram";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Color";
+            this.Histogram.Series.Add(series1);
+            this.Histogram.Size = new System.Drawing.Size(450, 147);
+            this.Histogram.TabIndex = 31;
+            this.Histogram.Text = "chart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 518);
+            this.Controls.Add(this.Histogram);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.btn_Histogram);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
@@ -398,6 +406,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Histogram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,13 +438,13 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btn_Histogram;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Histogram;
     }
 }
 
